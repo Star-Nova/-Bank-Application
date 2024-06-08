@@ -1,11 +1,9 @@
-# Bank Application
-# Döviz açıklaması ve Hesap özeti düzeltilecek
-# Hesap Özeti gerektiği gibi çalışmıyor
-# BANKA UYGULAMASI
+# Banka Uygulaması
 
 # Kullanıcılar
 PYT_bank_users = {
-    "Gold4": {"surname": "Member", "password": "123", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "Gold5": {"surname": "Member", "password": "123", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "Gold4": {"surname": "Member", "password": "123", "tlBalance": 1, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
     "Gold3": {"surname": "Member", "password": "123", "tlBalance": 10000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
     "Gold2": {"surname": "Member", "password": "123", "tlBalance": 500000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
     "Gold1": {"surname": "Member", "password": "123", "tlBalance": 1000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
@@ -15,265 +13,332 @@ PYT_bank_users = {
 
 x_bank_users = {
     "XUser1": {"surname": "XMember", "password": "321", "tlBalance": 15000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "XUser2": {"surname": "XMember", "password": "321", "tlBalance": 200000, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
+    "XUser2": {"surname": "XMember", "password": "321", "tlBalance": 200000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "XUser3": {"surname": "XMember", "password": "321", "tlBalance": 500000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "XUser4": {"surname": "XMember", "password": "321", "tlBalance": 1000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "XUser5": {"surname": "XMember", "password": "321", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}    
+
 }
 
 y_bank_users = {
     "YUser1": {"surname": "YMember", "password": "231", "tlBalance": 7500, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "YUser2": {"surname": "YMember", "password": "231", "tlBalance": 350000, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
+    "YUser2": {"surname": "YMember", "password": "231", "tlBalance": 350000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "YUser3": {"surname": "YMember", "password": "231", "tlBalance": 500000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "YUser4": {"surname": "YMember", "password": "231", "tlBalance": 800000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "YUser5": {"surname": "YMember", "password": "231", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
+}
+
+rich_bank_users = {
+    "FUser1": {"surname": "FMember", "password": "000", "tlBalance": 40000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "FUser2": {"surname": "FMember", "password": "000", "tlBalance": 30000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "FUser3": {"surname": "FMember", "password": "000", "tlBalance": 20000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "FUser4": {"surname": "FMember", "password": "000", "tlBalance": 10000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "FUser5": {"surname": "FMember", "password": "000", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
 }
 
 # Bankalar
 banks = {
     "PYT Bankası": {"users": PYT_bank_users},
     "X Bankası": {"users": x_bank_users},
-    "Y Bankası": {"users": y_bank_users}
+    "Y Bankası": {"users": y_bank_users},
+    "Rich Bankası": {"users": rich_bank_users}
 }
 
-# Değişkenlerin tanımlanması
-altin_miktari = 0
-Bitcoin_miktari = 0
-Ethereum_miktari = 0
-Tether_miktari = 0
-Bnb_miktari = 0
-Dolar_miktari = 0
-Euro_miktari = 0
-Sterlin_miktari = 0
-KuveytDinarı_miktari = 0
-Japonyeni_miktari = 0
-ÇinYuanı_miktari = 0
-accountSummary = []
+# Döviz, altın ve coin fiyatları
+exchange_rates = {
+    "Dolar": 33,
+    "Euro": 35,
+    "Japonyeni": 5,
+    "Sterlin": 40,
+    "KuveytDinarı": 100,
+    "ÇinYuanı": 6,
+    "GramAltın": 2500,
+    "ÇeyrekAltın": 4000,
+    "YarımAltın": 8000,
+    "TamAltın": 16000,
+    "Bitcoin": 2300000,
+    "Ethereum": 122000,
+    "Tether": 32,
+    "BNB": 23000
+}
 
 # Banka hakkında bilgi
-hakkinda = "PYT BANKASI 1999 yılında kuruldu. Her zaman güvenli sistemimizle paranızı muhafaza etmekteyiz. Bankamızın kurucusu Fernando'dur. 25 yıldır Türkiye'de milyonların paralarını güvenli bir şekilde muhafaza ettik. Bankamızı tercih ettiğiniz için teşekkür ederiz... "
-Dolar = 33
-Euro = 35
-Japonyeni = 5
-Sterlin = 40
-KuveytDinarı = 100
-ÇinYuanı = 6
-GramAltın = 2500
-ÇeyrekAltın = 4000
-YarımAltın = 8000
-TamAltın = 16000
-Bitcoin = 2300000
-Ethereum = 122000
-Tether = 32
-Bnb = 23000
+bank_info = "PYT BANKASI 1999 yılında kuruldu. Her zaman güvenli sistemimizle paranızı muhafaza etmekteyiz. Bankamızın kurucusu Fernando'dur. 25 yıldır Türkiye'de milyonların paralarını güvenli bir şekilde muhafaza ettik. Bankamızı tercih ettiğiniz için teşekkür ederiz."
+
+# Engellenen kullanıcı listesi
+blocked_users = {
+    "PYT Bankası": {"blocked_user": {"name": "Gold5", "surname": "Member"}},
+    "X Bankası": {"blocked_user": {"name": "XUser5", "surname": "XMember"}},
+    "Y Bankası": {"blocked_user": {"name": "YUser5", "surname": "YMember"}},
+    "Rich Bankası": {"blocked_user": {"name": "FUser5", "surname": "FMember"}}
+}
 
 # Kullanıcı girişi
 def login():
     print("Lütfen giriş yapın.")
-    giris_hakki = 5
-    while giris_hakki > 0:
-        kullanici_adi = input("Kullanıcı adınızı giriniz: ")
+    for _ in range(5):
+        username = input("Kullanıcı adınızı giriniz: ")
         surname = input("Soyadınızı giriniz: ")
-        sifre = input("Şifrenizi giriniz: ")
-        banka = input("Hangi bankaya aitsiniz? (PYT Bankası / X Bankası / Y Bankası): ")
+        password = input("Şifrenizi giriniz: ")
+        bank_name = input("Hangi bankaya aitsiniz? (PYT Bankası / X Bankası / Y Bankası / Rich Bankası): ")
 
-        if banks.get(banka) and banks[banka]["users"].get(kullanici_adi) and banks[banka]["users"][kullanici_adi]["surname"] == surname and banks[banka]["users"][kullanici_adi]["password"] == sifre:
-            print("Sisteme başarıyla giriş yaptınız!")
-            accountSummary.append("Giriş")
-            return kullanici_adi, surname, sifre, banka
+        if bank_name in banks and username in banks[bank_name]["users"]:
+            user = banks[bank_name]["users"][username]
+            
+            # Engelleme kontrolü
+            if (username == blocked_users[bank_name]["blocked_user"]["name"] and 
+                surname == blocked_users[bank_name]["blocked_user"]["surname"]):
+                print("Sisteme girişiniz engellenmiştir!")
+                continue
+            
+            if user["surname"] == surname and user["password"] == password:
+                print("Sisteme başarıyla giriş yaptınız!")
+                return username, bank_name
+            else:
+                print("Şifre veya soyadı yanlış!")
         else:
-            giris_hakki -= 1
-            print("Şifre, kullanıcı adı, soyadı veya banka bilgileri yanlış! Tekrar deneyin!")
+            print("Kullanıcı adı veya banka bilgisi yanlış!")
 
     print("Giriş hakkınız doldu. Sistem kapatılıyor.")
-    return False, "", "", ""
+    return None, None
+
+# Test senaryosu
+username, bank_name = login()
+
+if username:
+    print(f"{username} kullanıcısı {bank_name} bankasına giriş yaptı.")
+else:
+    print("Giriş yapılamadı.")
+
 
 # ATM menüsü
-def atmMenu(kullanici_adi, soyadi, sifresi, banka):
+def atm_menu(username, bank_name):
     print("\n1. Profil")
-    print("2. Bakiye sorgula ")
+    print("2. Bakiye sorgula")
     print("3. Para yatır")
     print("4. Para çek")
     print("5. Hesap özeti")
     print("6. Banka hakkında bilgi al")
     print("7. Havale")
-    print("8. Eft")
+    print("8. EFT")
     print("9. Altın alımı")
-    print("10. Coin alımı ")
+    print("10. Coin alımı")
     print("11. Döviz alımı")
     print("12. Altın satımı")
-    print("13. Coin satımı ")
-    print("14. Döviz satımı")  
+    print("13. Coin satımı")
+    print("14. Döviz satımı")
     print("15. Çıkış yap")
-    if kullanici_adi in ["Diamond1", "Diamond2"]:
+    if username in ["Diamond1", "Diamond2"]:
         print("16. Kullanıcıları görüntüle")
 
-# Geri kalan kısımları önceki kodlardan devam ettirerek doldurabiliriz.
-# Kullanıcı profili
-def showProfile(kullanici_adi, soyadi, sifresi, altin_miktari, coinAmount, valuableAmount, depositAmount):
-    print("                               ")
-    print(f"Profil Bilgileri:")
-    print(f"Kullanıcı Adı: {kullanici_adi}")
-    print(f"Soyadı: {soyadi}")
-    print(f"Şifre: {sifresi}")
-    print(f"Altın: {altin_miktari}")
-    print(f"Coin: {coinAmount}")
-    print(f"Döviz: {valuableAmount}")
-    print(f"Para: {depositAmount}")
-    for transaction in PYT_bank_users[kullanici_adi]["transactions"]:
-        print(f"İşlem: {transaction}")
-
+# Kullanıcı profili gösterme
+def show_profile(username, bank_name):
+    user = banks[bank_name]["users"][username]
+    print("Profil Bilgileri:")
+    print(f"Kullanıcı Adı: {username}")
+    print(f"Soyadı: {user['surname']}")
+    print(f"Bakiye: {user['tlBalance']} TL")
+    print(f"Altın Miktarı: {user['valuableAmount']}")
+    print(f"Coin Miktarı: {user['coinAmount']}")
+    print("İşlem Geçmişi:")
+    for transaction in user['transactions']:
+        print(f"- {transaction}")
 
 # Kullanıcıları görüntüleme
-def showUsers():
-    for user, info in PYT_bank_users.items():
-        print(f"Kişi: {user}, Soy İsmi: {info['surname']}, Şifresi: {info['password']}, Para Miktarı: {info['tlBalance']}")
+def show_users(bank_name):
+    for user, info in banks[bank_name]["users"].items():
+        print(f"Kullanıcı Adı: {user}, Soyadı: {info['surname']}, Bakiye: {info['tlBalance']} TL")
 
+# Para yatırma
+def deposit(username, bank_name):
+    amount = int(input("Yatırılacak tutarı girin: "))
+    banks[bank_name]["users"][username]['tlBalance'] += amount
+    banks[bank_name]["users"][username]['transactions'].append(f"{amount} TL yatırıldı.")
+    print(f"{amount} TL başarıyla yatırıldı.")
 
-# Kullanıcı girişi yapılıyor
-banks,loggedInUser, rightSurname, rightpassword = login()
+# Para çekme
+def withdraw(username, bank_name):
+    amount = int(input("Çekilecek tutarı girin: "))
+    if amount <= banks[bank_name]["users"][username]['tlBalance']:
+        banks[bank_name]["users"][username]['tlBalance'] -= amount
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} TL çekildi.")
+        print(f"{amount} TL başarıyla çekildi.")
+    else:
+        print("Hesabınızda yeterli bakiye yok.")
 
+# Hesap özeti gösterme
+def show_account_summary(username, bank_name):
+    user = banks[bank_name]["users"][username]
+    print("Hesap Özeti:")
+    for transaction in user['transactions']:
+        print(f"- {transaction}")
 
-# Kullanıcı girişi başarılı ise işlemler yapılıyor
-if loggedInUser:
+# Havale yapma
+def transfer(username, bank_name):
+    receiver = input("Para göndermek istediğiniz kişinin kullanıcı adını girin: ")
+    amount = int(input("Göndermek istediğiniz miktarı girin: "))
+    if receiver in banks[bank_name]["users"]:
+        if amount <= banks[bank_name]["users"][username]['tlBalance']:
+            banks[bank_name]["users"][username]['tlBalance'] -= amount
+            banks[bank_name]["users"][receiver]['tlBalance'] += amount
+            banks[bank_name]["users"][username]['transactions'].append(f"{amount} TL {receiver} hesabına havale yapıldı.")
+            banks[bank_name]["users"][receiver]['transactions'].append(f"{amount} TL {username} hesabından havale geldi.")
+            print(f"{amount} TL {receiver} hesabına başarıyla gönderildi.")
+        else:
+            print("Yetersiz bakiye!")
+    else:
+        print("Alıcı kullanıcı bulunamadı!")
+
+# EFT yapma
+def eft(username, bank_name):
+    other_bank = input("EFT yapacağınız bankayı girin: ")
+    receiver = input("EFT yapacağınız kişinin kullanıcı adını girin: ")
+    amount = int(input("EFT yapmak istediğiniz miktarı girin: "))
+    if other_bank in banks and receiver in banks[other_bank]["users"]:
+        if amount <= banks[bank_name]["users"][username]['tlBalance']:
+            banks[bank_name]["users"][username]['tlBalance'] -= amount
+            banks[other_bank]["users"][receiver]['tlBalance'] += amount
+            banks[bank_name]["users"][username]['transactions'].append(f"{amount} TL {receiver} hesabına EFT yapıldı.")
+            banks[other_bank]["users"][receiver]['transactions'].append(f"{amount} TL {username} hesabından EFT geldi.")
+            print(f"{amount} TL {receiver} hesabına başarıyla EFT yapıldı.")
+        else:
+            print("Yetersiz bakiye!")
+    else:
+        print("Geçersiz banka veya kullanıcı adı!")
+
+# Altın alımı
+def buy_gold(username, bank_name):
+    print(f"Gram Altın: {exchange_rates['GramAltın']} TL")
+    print(f"Çeyrek Altın: {exchange_rates['ÇeyrekAltın']} TL")
+    print(f"Yarım Altın: {exchange_rates['YarımAltın']} TL")
+    print(f"Tam Altın: {exchange_rates['TamAltın']} TL")
+
+    gold_type = input("Almak istediğiniz altını seçin (Gram/Çeyrek/Yarım/Tam): ")
+    amount = int(input("Kaç adet almak istiyorsunuz? "))
+    total_price = amount * exchange_rates[f'{gold_type}Altın']
+
+    if total_price <= banks[bank_name]["users"][username]['tlBalance']:
+        banks[bank_name]["users"][username]['tlBalance'] -= total_price
+        banks[bank_name]["users"][username]['valuableAmount'] += total_price
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} adet {gold_type} altın satın alındı.")
+        print(f"{amount} adet {gold_type} altın başarıyla satın alındı.")
+    else:
+        print("Yetersiz bakiye!")
+
+# Coin alımı
+def buy_coin(username, bank_name):
+    print(f"Bitcoin: {exchange_rates['Bitcoin']} TL")
+    print(f"Ethereum: {exchange_rates['Ethereum']} TL")
+    print(f"Tether: {exchange_rates['Tether']} TL")
+    print(f"BNB: {exchange_rates['BNB']} TL")
+
+    coin_type = input("Almak istediğiniz coini seçin (Bitcoin/Ethereum/Tether/BNB): ")
+    amount = int(input("Kaç adet almak istiyorsunuz? "))
+    total_price = amount * exchange_rates[coin_type]
+
+    if total_price <= banks[bank_name]["users"][username]['tlBalance']:
+        banks[bank_name]["users"][username]['tlBalance'] -= total_price
+        banks[bank_name]["users"][username]['coinAmount'] += amount
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} adet {coin_type} satın alındı.")
+        print(f"{amount} adet {coin_type} başarıyla satın alındı.")
+    else:
+        print("Yetersiz bakiye!")
+
+# Döviz alımı
+def buy_currency(username, bank_name):
+    print(f"Dolar: {exchange_rates['Dolar']} TL")
+    print(f"Euro: {exchange_rates['Euro']} TL")
+    print(f"Japonyeni: {exchange_rates['Japonyeni']} TL")
+    print(f"Sterlin: {exchange_rates['Sterlin']} TL")
+    print(f"Kuveyt Dinarı: {exchange_rates['KuveytDinarı']} TL")
+    print(f"Çin Yuanı: {exchange_rates['ÇinYuanı']} TL")
+
+    currency_type = input("Almak istediğiniz dövizi seçin (Dolar/Euro/Japonyeni/Sterlin/KuveytDinarı/ÇinYuanı): ")
+    amount = int(input("Kaç adet almak istiyorsunuz? "))
+    total_price = amount * exchange_rates[currency_type]
+
+    if total_price <= banks[bank_name]["users"][username]['tlBalance']:
+        banks[bank_name]["users"][username]['tlBalance'] -= total_price
+        banks[bank_name]["users"][username]['valuableAmount'] += total_price
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} adet {currency_type} satın alındı.")
+        print(f"{amount} adet {currency_type} başarıyla satın alındı.")
+    else:
+        print("Yetersiz bakiye!")
+
+# Altın satımı
+def sell_gold(username, bank_name):
+    amount = int(input("Satmak istediğiniz altın miktarını girin: "))
+    if amount <= banks[bank_name]["users"][username]['valuableAmount']:
+        banks[bank_name]["users"][username]['tlBalance'] += amount * exchange_rates['GramAltın']
+        banks[bank_name]["users"][username]['valuableAmount'] -= amount * exchange_rates['GramAltın']
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} gram altın satıldı.")
+        print(f"{amount} gram altın başarıyla satıldı.")
+    else:
+        print("Yetersiz altın miktarı!")
+
+# Coin satımı
+def sell_coin(username, bank_name):
+    amount = int(input("Satmak istediğiniz coin miktarını girin: "))
+    if amount <= banks[bank_name]["users"][username]['coinAmount']:
+        banks[bank_name]["users"][username]['tlBalance'] += amount * exchange_rates['Bitcoin']
+        banks[bank_name]["users"][username]['coinAmount'] -= amount
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} adet coin satıldı.")
+        print(f"{amount} adet coin başarıyla satıldı.")
+    else:
+        print("Yetersiz coin miktarı!")
+
+# Döviz satımı
+def sell_currency(username, bank_name):
+    amount = int(input("Satmak istediğiniz döviz miktarını girin: "))
+    if amount <= banks[bank_name]["users"][username]['valuableAmount']:
+        banks[bank_name]["users"][username]['tlBalance'] += amount
+        banks[bank_name]["users"][username]['valuableAmount'] -= amount
+        banks[bank_name]["users"][username]['transactions'].append(f"{amount} birim döviz satıldı.")
+        print(f"{amount} birim döviz başarıyla satıldı.")
+    else:
+        print("Yetersiz döviz miktarı!")
+
+# Uygulamayı başlat
+username, bank_name = login()
+
+if username:
     while True:
-        atmMenu(loggedInUser, rightSurname, rightpassword)
+        atm_menu(username, bank_name)
         choice = int(input("Lütfen bir işlem seçin: "))
         if choice == 1:
-            showProfile(loggedInUser, PYT_bank_users[loggedInUser]["surname"], PYT_bank_users[loggedInUser]["password"], altin_miktari, PYT_bank_users[loggedInUser]["coinAmount"] , PYT_bank_users[loggedInUser]["valuableAmount"],PYT_bank_users[loggedInUser]['tlBalance'])
+            show_profile(username, bank_name)
+        elif choice == 2:
+            print(f"Bakiyeniz: {banks[bank_name]['users'][username]['tlBalance']} TL")
+        elif choice == 3:
+            deposit(username, bank_name)
+        elif choice == 4:
+            withdraw(username, bank_name)
+        elif choice == 5:
+            show_account_summary(username, bank_name)
+        elif choice == 6:
+            print(bank_info)
+        elif choice == 7:
+            transfer(username, bank_name)
+        elif choice == 8:
+            eft(username, bank_name)
+        elif choice == 9:
+            buy_gold(username, bank_name)
+        elif choice == 10:
+            buy_coin(username, bank_name)
+        elif choice == 11:
+            buy_currency(username, bank_name)
+        elif choice == 12:
+            sell_gold(username, bank_name)
+        elif choice == 13:
+            sell_coin(username, bank_name)
+        elif choice == 14:
+            sell_currency(username, bank_name)
         elif choice == 15:
             print("Başarıyla çıkış yaptınız!")
             break
-        if choice == 2:
-            print(f"Bakiyeniz: {PYT_bank_users[loggedInUser]['tlBalance']}")
-            accountSummary.append(f"Bakiye sorgulama. Bakiye: {PYT_bank_users[loggedInUser]['tlBalance']} TL ")
-        elif choice == 3:
-            depositAmount = int(input("Yatırılacak tutarı girin: "))
-            PYT_bank_users[loggedInUser]['tlBalance'] += depositAmount
-            print(f"Para yatırıldı: {depositAmount}. Yeni bakiye: {PYT_bank_users[loggedInUser]['tlBalance']}")
-            PYT_bank_users[loggedInUser]["transactions"].append(f"{depositAmount} TL para yatırıldı.")
-        elif choice == 4:
-            withdrawAmount = int(input("Çekilecek tutarı girin: "))
-            if withdrawAmount > PYT_bank_users[loggedInUser]['tlBalance']:
-                print("Hesabınızda yeterli bakiye yok.")
-            else:
-                PYT_bank_users[loggedInUser]['tlBalance'] -= withdrawAmount
-                print(f"Para çekildi: {withdrawAmount}. Yeni bakiye: {PYT_bank_users[loggedInUser]['tlBalance']}")
-                PYT_bank_users[loggedInUser]["transactions"].append(f"{withdrawAmount} TL para çekildi.")
-        elif choice == 5:
-            for item in accountSummary:
-                print(f"- {item}")
-        elif choice == 6:
-            print(hakkinda)
-        elif choice == 7:
-            receiver = input("Para göndermek istediğiniz kişinin kullanıcı adını girin: ")
-            amount = int(input("Göndermek istediğiniz miktarı girin: "))
-            if receiver in PYT_bank_users and amount <= PYT_bank_users[loggedInUser]['tlBalance']:
-                PYT_bank_users[loggedInUser]['tlBalance'] -= amount
-                PYT_bank_users[receiver]['tlBalance'] += amount
-                print(f"{amount} TL, {receiver} hesabına başarıyla gönderildi.")
-                PYT_bank_users[loggedInUser]["transactions"].append(f"{amount} TL, {receiver} hesabına havale yapıldı.")
-                PYT_bank_users[receiver]["transactions"].append(f"{amount} TL, {loggedInUser} hesabından havale geldi.")
-            else:
-                print("Geçersiz işlem! Lütfen bilgilerinizi kontrol edin.")
-        elif choice == 8:
-            bank = input("EFT yapacağınız bankayı girin: ")
-            receiver = input("EFT yapacağınız kişinin kullanıcı adını girin: ")
-            amount = int(input("EFT yapmak istediğiniz miktarı girin: "))
-            if bank == "PYT BANKASI" and receiver in PYT_bank_users and amount <= PYT_bank_users[loggedInUser]['tlBalance']:
-                PYT_bank_users[loggedInUser]['tlBalance'] -= amount
-                PYT_bank_users[receiver]['tlBalance'] += amount
-                print(f"{amount} TL, {receiver} hesabına başarıyla EFT yapıldı.")
-                PYT_bank_users[loggedInUser]["transactions"].append(f"{amount} TL, {receiver} hesabına EFT yapıldı.")
-                PYT_bank_users[receiver]["transactions"].append(f"{amount} TL, {loggedInUser} hesabından EFT geldi.")
-            else:
-                print("Geçersiz işlem! Lütfen bilgilerinizi kontrol edin.")
-        elif choice == 9:
-            print(f"  Gram Altın Fiyatı :{GramAltın}TL\n  Çeyrek Altın Fiyatı :{ÇeyrekAltın}TL\n  Yarım Altın Fiyatı :{YarımAltın}TL\n  Tam Altın Fiyatı :{TamAltın}TL")
-            try:
-                altin_secenek = int(input("Hangi altını almak istiyorsunuz? (1-Gram Altın, 2-Çeyrek Altın, 3-Yarım Altın, 4-Tam Altın): "))
-                miktar = int(input("Kaç adet almak istiyorsunuz? "))
-                if altin_secenek in range(1, 5):
-                    altin_fiyat = {"1": GramAltın, "2": ÇeyrekAltın, "3": YarımAltın, "4": TamAltın}[str(altin_secenek)]
-                    if PYT_bank_users[loggedInUser]['tlBalance'] >= miktar * altin_fiyat:
-                        altin_miktari += miktar
-                        PYT_bank_users[loggedInUser]['tlBalance'] -= miktar * altin_fiyat
-                        PYT_bank_users[loggedInUser]['valuableAmount'] += miktar * altin_fiyat
-                        print(f"{miktar} adet altın satın aldınız.")
-                        PYT_bank_users[loggedInUser]["transactions"].append(f"{miktar} adet altın satın alındı.")
-                    else:
-                        print("Yetersiz bakiye!")
-                else:
-                    print("Geçersiz seçim!")
-            except ValueError:
-                print("Geçersiz miktar! Lütfen sayısal bir değer girin.")
-        elif choice == 10:
-            print(f"  Bitcoin Fiyatı :{Bitcoin}TL\n  Ethereum Fiyatı :{Ethereum}TL\n  Tether Fiyatı :{Tether}TL\n  BNB Fiyatı :{Bnb}TL")
-            try:
-                coin_secenek = int(input("Hangi coini almak istiyorsunuz? (1-Bitcoin, 2-Ethereum, 3-Tether, 4-BNB): "))
-                miktar = int(input("Kaç adet almak istiyorsunuz? "))
-                coin_fiyat = {"1": Bitcoin, "2": Ethereum, "3": Tether, "4": Bnb}[str(coin_secenek)]
-                if PYT_bank_users[loggedInUser]['tlBalance'] >= miktar * coin_fiyat:
-                    PYT_bank_users[loggedInUser]['tlBalance'] -= miktar * coin_fiyat
-                    PYT_bank_users[loggedInUser]['coinAmount'] += miktar
-                    print(f"{miktar} adet coin satın aldınız.")
-                    PYT_bank_users[loggedInUser]["transactions"].append(f"{miktar} adet coin satın alındı.")
-                else:
-                    print("Yetersiz bakiye!")
-            except ValueError:
-                print("Geçersiz miktar veya seçenek! Lütfen geçerli bir değer girin.")
-        elif choice == 11:            
-            print(f"Dolar Fiyatı: {Dolar}TL\nEuro Fiyatı: {Euro}TL\nSterlin Fiyatı: {Sterlin}TL\nKuveyt Dinarı Fiyatı: {KuveytDinarı}TL\nJapon Yeni Fiyatı: {Japonyeni}TL\nÇin Yuanı Fiyatı: {ÇinYuanı}TL")
-            try:
-                para_secenek = int(input("Hangi coini almak istiyorsunuz? (1-Dolar, 2-Euro, 3-Sterlin, 4-Kuveyt Dinarı, 5-Japon Yeni, 6-Çin Yuanı): "))
-                miktar = int(input("Kaç adet almak istiyorsunuz? "))
-                para_fiyat = {"1": Dolar, "2": Euro, "3": Sterlin, "4": KuveytDinarı, "5": Japonyeni, "6": ÇinYuanı}[str(para_secenek)]
-                toplam_miktar = miktar * para_fiyat
-                if PYT_bank_users[loggedInUser]['tlBalance'] >= toplam_miktar:
-                    PYT_bank_users[loggedInUser]['tlBalance'] -= toplam_miktar
-                    PYT_bank_users[loggedInUser]['valuableAmount'] += miktar
-                    print(f"{miktar} adet döviz satın aldınız.")
-                    PYT_bank_users[loggedInUser]["transactions"].append(f"{miktar} adet döviz satın alındı.")
-                else:
-                    print("Yetersiz bakiye!")
-            except ValueError:
-                print("Geçersiz miktar veya seçenek! Lütfen geçerli bir değer girin.")
-# Altın, Coin ve Döviz Satımı              
-        elif choice == 12:
-            try:
-                miktar = int(input("Satmak istediğiniz altın miktarını girin: "))
-                if altin_miktari >= miktar:                    
-                    altin_miktari -= miktar
-                    PYT_bank_users[loggedInUser]['tlBalance'] += miktar * GramAltın
-                    PYT_bank_users[loggedInUser]['valuableAmount'] -= miktar * GramAltın
-                    print(f"{miktar} gram altını başarıyla sattınız.")
-                    PYT_bank_users[loggedInUser]["transactions"].append(f"{miktar} gram altın satıldı.")
-                else:
-                    print("Yetersiz altın miktarı!")
-            except ValueError:
-                print("Geçersiz miktar! Lütfen sayısal bir değer girin.")
-        elif choice == 13:
-            try:
-                miktar = int(input("Satmak istediğiniz coin miktarını girin: "))
-                if PYT_bank_users[loggedInUser]['coinAmount'] >= miktar:                    
-                    PYT_bank_users[loggedInUser]['tlBalance'] += miktar * Bitcoin
-                    PYT_bank_users[loggedInUser]['coinAmount'] -= miktar
-                    print(f"{miktar} adet coin başarıyla sattınız.")
-                    PYT_bank_users[loggedInUser]["transactions"].append(f"{miktar} adet coin satıldı.")
-                else:
-                    print("Yetersiz coin miktarı!")
-            except ValueError:
-                print("Geçersiz miktar! Lütfen sayısal bir değer girin.")
-        elif choice == 14:
-            try:
-                miktar = int(input("Satmak istediğiniz döviz miktarını girin: "))
-                if PYT_bank_users[loggedInUser]['valuableAmount'] >= miktar:                    
-                    PYT_bank_users[loggedInUser]['tlBalance'] += miktar
-                    PYT_bank_users[loggedInUser]['valuableAmount'] -= miktar
-                    print(f"{miktar} birim dövizi başarıyla sattınız.")
-                    PYT_bank_users[loggedInUser]["transactions"].append(f"{miktar} birim döviz satıldı.")
-                else:
-                    print("Yetersiz döviz miktarı!")
-            except ValueError:
-                print("Geçersiz miktar! Lütfen sayısal bir değer girin.")
-
-
-        elif choice == 16 and loggedInUser in ["Diamond1", "Diamond2"]:
-            showUsers()
+        elif choice == 16 and username in ["Diamond1", "Diamond2"]:
+            show_users(bank_name)
+        else:
+            print("Geçersiz seçim. Lütfen geçerli bir seçenek seçin.")
 else:
-    print("Geçersiz seçim. Lütfen geçerli bir seçenek seçin.")
-
+    print("Giriş yapılamadı, program sonlandırılıyor.")
