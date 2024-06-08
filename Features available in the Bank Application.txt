@@ -1,24 +1,24 @@
 #Bank_Application
 
-4 Farklı Banka Bulunmaktadır (PYT , X , Y ve Rich Bankası )Alttaki özellikler o bankalarda hesabı bulunan herkste çalışmaktadır. 
-Ancak bu dört bankada bulunan engellenen kullanıcılarda bulunmaktadır. :D O kullanıcılar bu özelliği kullanamamaktadır.
+There are 4 different banks (PYT, X, Y and Rich Bank). The features below work for everyone who has an account in those banks. 
+However, there are also blocked users in these four banks. :D Those users cannot use this feature.
 
-Özellikler:
-"1. Profil"
-"2. Bakiye sorgula"
-"3. Para yatır"
-"4. Para çek"
-"5. Hesap özeti"
-"6. Banka hakkında bilgi al"
-"7. Havale
+Features:
+"Profile 1"
+"2. Query balance"
+"3. Deposit"
+"4. Withdraw money"
+"5. Account statement"
+"6. Get information about the bank"
+"7. Transfer
 "8. EFT"
-"9. Altın alımı"
-"10. Coin alımı"
-"11. Döviz alımı
-"12. Altın satımı"
-"13. Coin satımı"
-"14. Döviz satımı"
-"15. Çıkış yap"
-Yönetici olan ["Diamond1", "Diamond2"] bulunan ekstra özellik : "16. Kullanıcıları görüntüle"
+"9. Purchasing gold"
+"10. Coin purchase"
+"11. Foreign exchange purchase
+"12. Gold sale"
+"13. Coin sale"
+"14. Sale of foreign currency"
+"15. Sign out"
+Extra feature found in admin ["Diamond1", "Diamond2"] : "16. View users"
 
-Not: Eğer hata varsa ya da ekstra şöyle bir özellik eklenmesi varsa yazabilirsiniz.
+Note: If there is an error or an extra feature has been added, you can write it.
