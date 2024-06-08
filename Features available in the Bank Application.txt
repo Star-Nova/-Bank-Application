@@ -1,0 +1,24 @@
+#Bank_Application
+
+4 Farklı Banka Bulunmaktadır (PYT , X , Y ve Rich Bankası )Alttaki özellikler o bankalarda hesabı bulunan herkste çalışmaktadır. 
+Ancak bu dört bankada bulunan engellenen kullanıcılarda bulunmaktadır. :D O kullanıcılar bu özelliği kullanamamaktadır.
+
+Özellikler:
+"1. Profil"
+"2. Bakiye sorgula"
+"3. Para yatır"
+"4. Para çek"
+"5. Hesap özeti"
+"6. Banka hakkında bilgi al"
+"7. Havale
+"8. EFT"
+"9. Altın alımı"
+"10. Coin alımı"
+"11. Döviz alımı
+"12. Altın satımı"
+"13. Coin satımı"
+"14. Döviz satımı"
+"15. Çıkış yap"
+Yönetici olan ["Diamond1", "Diamond2"] bulunan ekstra özellik : "16. Kullanıcıları görüntüle"
+
+Not: Eğer hata varsa ya da ekstra şöyle bir özellik eklenmesi varsa yazabilirsiniz.
