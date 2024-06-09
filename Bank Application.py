@@ -16,8 +16,7 @@ x_bank_users = {
     "XUser2": {"surname": "XMember", "password": "321", "tlBalance": 200000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
     "XUser3": {"surname": "XMember", "password": "321", "tlBalance": 500000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
     "XUser4": {"surname": "XMember", "password": "321", "tlBalance": 1000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "XUser5": {"surname": "XMember", "password": "321", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}    
-
+    "XUser5": {"surname": "XMember", "password": "321", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
 }
 
 y_bank_users = {
@@ -29,11 +28,11 @@ y_bank_users = {
 }
 
 rich_bank_users = {
-    "FUser1": {"surname": "FMember", "password": "000", "tlBalance": 40000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "FUser2": {"surname": "FMember", "password": "000", "tlBalance": 30000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "FUser3": {"surname": "FMember", "password": "000", "tlBalance": 20000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "FUser4": {"surname": "FMember", "password": "000", "tlBalance": 10000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
-    "FUser5": {"surname": "FMember", "password": "000", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
+    "RUser1": {"surname": "FMember", "password": "000", "tlBalance": 40000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "RUser2": {"surname": "FMember", "password": "000", "tlBalance": 30000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "RUser3": {"surname": "FMember", "password": "000", "tlBalance": 20000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "RUser4": {"surname": "FMember", "password": "000", "tlBalance": 10000000, "coinAmount": 0, "valuableAmount": 0, "transactions": []},
+    "RUser5": {"surname": "FMember", "password": "000", "tlBalance": 0, "coinAmount": 0, "valuableAmount": 0, "transactions": []}
 }
 
 # Bankalar
@@ -67,10 +66,10 @@ bank_info = "PYT BANKASI 1999 yılında kuruldu. Her zaman güvenli sistemimizle
 
 # Engellenen kullanıcı listesi
 blocked_users = {
-    "PYT Bankası": {"blocked_user": {"name": "Gold5", "surname": "Member"}},
-    "X Bankası": {"blocked_user": {"name": "XUser5", "surname": "XMember"}},
-    "Y Bankası": {"blocked_user": {"name": "YUser5", "surname": "YMember"}},
-    "Rich Bankası": {"blocked_user": {"name": "FUser5", "surname": "FMember"}}
+    "PYT Bankası": ["Gold5"],
+    "X Bankası": ["XUser5"],
+    "Y Bankası": ["YUser5"],
+    "Rich Bankası": ["RUser5"]
 }
 
 # Kullanıcı girişi
@@ -86,8 +85,7 @@ def login():
             user = banks[bank_name]["users"][username]
             
             # Engelleme kontrolü
-            if (username == blocked_users[bank_name]["blocked_user"]["name"] and 
-                surname == blocked_users[bank_name]["blocked_user"]["surname"]):
+            if username in blocked_users.get(bank_name, []):
                 print("Sisteme girişiniz engellenmiştir!")
                 continue
             
@@ -101,15 +99,6 @@ def login():
 
     print("Giriş hakkınız doldu. Sistem kapatılıyor.")
     return None, None
-
-# Test senaryosu
-username, bank_name = login()
-
-if username:
-    print(f"{username} kullanıcısı {bank_name} bankasına giriş yaptı.")
-else:
-    print("Giriş yapılamadı.")
-
 
 # ATM menüsü
 def atm_menu(username, bank_name):
@@ -176,6 +165,12 @@ def show_account_summary(username, bank_name):
 # Havale yapma
 def transfer(username, bank_name):
     receiver = input("Para göndermek istediğiniz kişinin kullanıcı adını girin: ")
+
+    # Engelleme kontrolü
+    if receiver in blocked_users.get(bank_name, []):
+        print(f"{receiver} kullanıcısı engellenmiştir. Havale işlemi yapılamaz.")
+        return
+
     amount = int(input("Göndermek istediğiniz miktarı girin: "))
     if receiver in banks[bank_name]["users"]:
         if amount <= banks[bank_name]["users"][username]['tlBalance']:
@@ -193,6 +188,12 @@ def transfer(username, bank_name):
 def eft(username, bank_name):
     other_bank = input("EFT yapacağınız bankayı girin: ")
     receiver = input("EFT yapacağınız kişinin kullanıcı adını girin: ")
+
+    # Engelleme kontrolü
+    if receiver in blocked_users.get(other_bank, []):
+        print(f"{receiver} kullanıcısı {other_bank} bankasında engellenmiştir. EFT işlemi yapılamaz.")
+        return
+
     amount = int(input("EFT yapmak istediğiniz miktarı girin: "))
     if other_bank in banks and receiver in banks[other_bank]["users"]:
         if amount <= banks[bank_name]["users"][username]['tlBalance']:
