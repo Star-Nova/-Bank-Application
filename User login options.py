@@ -15,27 +15,47 @@ class UserRepository:
         self.loadUsers()
 
     def loadUsers(self):
-        if os.path.exists('users.json'):
-            with open('users.json', 'r') as file:
+        """Load users from 'user_information.json' file if it exists."""
+        if os.path.exists('user_information.json'):
+            with open('user_information.json', 'r') as file:
                 users_data = json.load(file)
                 for user_data in users_data:
                     user = User(user_data['username'], user_data['password'], user_data['email'])
                     self.users.append(user)
 
     def saveUsers(self):
-        with open('users.json', 'w') as file:
+        """Save the current users list to 'user_information.json' file."""
+        with open('user_information.json', 'w') as file:
             users_data = [{'username': user.username, 'password': user.password, 'email': user.email} for user in self.users]
-            json.dump(users_data, file)
+            json.dump(users_data, file, indent=4)
 
     def register(self, user: User):
+        """Register a new user if the username is not already taken."""
         if any(u.username == user.username for u in self.users):
             print('Bu kullanıcı adı zaten mevcut.')
         else:
             self.users.append(user)
             self.saveUsers()
+            self.saveUserInfo(user)
             print('Kullanıcı oluşturuldu')
 
+    def saveUserInfo(self, user: User):
+        """Save user info to 'user_information.json' file."""
+        user_info = {'username': user.username, 'password': user.password, 'email': user.email}
+        if os.path.exists('user_information.json'):
+            with open('user_information.json', 'r') as file:
+                users_info = json.load(file)
+        else:
+            users_info = []
+        
+        users_info.append(user_info)
+        
+        with open('user_information.json', 'w') as file:
+            json.dump(users_info, file, indent=4)
+        print('Kullanıcı bilgileri "user_information.json" dosyasına kaydedildi.')
+
     def login(self, username, password):
+        """Log in a user by username and password."""
         for user in self.users:
             if user.username == username and user.password == password:
                 self.isLoggedIn = True
@@ -45,6 +65,7 @@ class UserRepository:
         print('Yanlış kullanıcı adı veya şifre')
 
     def logout(self):
+        """Log out the current user if logged in."""
         if self.isLoggedIn:
             self.isLoggedIn = False
             self.currentUser = None
@@ -53,6 +74,7 @@ class UserRepository:
             print('Zaten giriş yapılmamış')
 
     def identity(self):
+        """Display the current logged-in user's identity."""
         if self.isLoggedIn:
             print(f'Giriş yapılan kullanıcı: {self.currentUser.username}')
         else:
@@ -71,7 +93,6 @@ while True:
         email = input('Email: ')
         user = User(username=username, password=password, email=email)
         repository.register(user)
-        print(repository.users)
     elif secim == '2':
         username = input('Kullanıcı adı: ')
         password = input('Şifre: ')
