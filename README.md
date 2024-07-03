@@ -1,1 +1,1 @@
-Details are in the .txt file.
+Acaba add file dosyası ile Banka Uygulamasını birleştirebilir misiniz?
