@@ -1,1 +1,1 @@
-Acaba add file dosyası ile Banka Uygulamasını birleştirebilir misiniz?
+Acaba add file dosyası ile -Bank-Application dosyasını birleştirebilir misiniz?
