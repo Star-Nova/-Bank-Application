@@ -1,1 +1,1 @@
-Acaba add file dosyası ile -Bank-Application dosyasını birleştirebilir misiniz?
+Acaba DENEME2.py dosyası ile -Bank-Application dosyasını birleştirebilir misiniz?
